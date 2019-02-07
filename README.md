@@ -1,11 +1,15 @@
-# PM-SDP
-Implementation of the SIGGRAPH 2016 paper "Point registration via efficient convex relaxation‏"
-
-Code for the paper:
---------------------
-Point registration via efficient convex relaxation. 
+# Point registration via efficient convex relaxation
+Implementation of the SIGGRAPH 2016 paper "Point registration via efficient convex relaxation"
 Haggai Maron, Nadav Dym, Itay Kezurer, Shahar Kovalsky,Yaron Lipman 
-ACM SIGGRAPH 2016
+
+Abstract
+-------------
+Point cloud registration is a fundamental task in computer graphics, and more specifically, in rigid and non-rigid shape matching.The rigid shape matching problem can be formulated as the problem of simultaneously aligning and labelling two point clouds in 3D so that they are as similar as possible. We name this problem the Procrustes matching (PM) problem. The non-rigid shape matching problem can be formulated as a higher dimensional PM problem using the functional maps method. High dimensional PM problems are difficult non-convex problems which currently can only be solved locally using iterative closest point (ICP) algorithms or similar methods. Good initialization is crucial for obtaining a good solution.
+
+We introduce a novel and efficient convex SDP (semidefinite programming) relaxation for the PM problem. The algorithm is guaranteed to return a correct global solution of the problem when matching two isometric shapes which are either asymmetric or bilaterally symmetric.
+
+We show our algorithm gives state of the art results on popular shape matching datasets. We also show that our algorithm gives
+state of the art results for anatomical classification of shapes. Finally we demonstrate the power of our method in aligning shape collections.
 
 Prerequisites:
 --------------
@@ -36,8 +40,12 @@ for SCAPE we simply use the cot Laplacian, while for FAUST we build the laplacia
 
 3.) Run testPMSDP_scapeRawScans - this file runs PM SDP on the SCAPE raw scans dataset and saves the results.
 A prerequisite is to preprocess this dataset using Chen and Koltun's preprocessing code and put the point clouds and geodesic matrices in the matlab path. 
-Note that also the regular SCAPE dataset is needed for error validation. The file outputs a .cor file that can be used for error evaluation using Kim et al. 2011 code 
+Also note that the regular SCAPE dataset is needed for error validation. The file outputs a .cor file that can be used for error evaluation using Kim et al. 2011 code 
 (https://www.cs.princeton.edu/~vk/projects/CorrsBlended/doc_data.php)
+
+Disclaimer:
+-----------------
+The code is provided as-is for academic use only and without any guarantees. Please contact the authors to report any bugs.
 
 
 Contact:
